@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="ttt.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <h2>Scores:</h2>
+    <div class="scoreValuesContainer">
+      <div class="PlayerOne-scoreInfo">
+        <h3 id="playeroneScore-heading"></h3>
+        <div class="p1ScoreDetails">
+  
+        </div>
+      </div>
+      <div class="PlayerTwo-scoreInfo">
+        <h3 id="playertwoScore-heading"></h3>
+        <div class="p2ScoreDetails">
+  
+        </div>
+      </div>
+      <div class="clearScores">
+        <button id="resetScores">Reset Scores</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span> -->
+  <div class="container">
+
+
+    <div class="heading-container">
+      <div class="gear-flexbox">
+        <div class="gear-container">
+          <i class="fa fa-gear" style="font-size:48px;"></i>
+        </div>
+      </div>
+      <div class="score-container">
+        <button id="viewScores" onclick="openNav()">View Scores</button>
+      </div>
+    </div>
+
+    <div class="msg-container">
+      <h1 id="grid-heading">Tic-Tac-Toe</h1>
+    </div>
+
+    <div class="grid">
+      <div class="grid-cell top top-left-corner" data-id="1"></div>
+      <div class="grid-cell top" data-id="2"></div>
+      <div class="grid-cell top right top-right-corner" data-id="3"></div>
+      <div class="grid-cell" data-id="4"></div>
+      <div class="grid-cell" data-id="5"></div>
+      <div class="grid-cell right" data-id="6"></div>
+      <div class="grid-cell bot-left-corner" data-id="7"></div>
+      <div class="grid-cell" data-id="8"></div>
+      <div class="grid-cell right bot-right-corner" data-id="9"></div>
+    </div>
+    <div class="controls">
+      <div>
+        <button id="clear">Reset</button>
+      </div>
+    </div>
+    <!-- insert end-game message here -->
+  </div>
+
+  <!-- modal -->
+  <div class="modal-canvas"></div>
+  
+  <div class="modal active" id="addbookModal">
+    <span class="close" hidden>&times;</span>
+    <form class="menu">
+      <h2 id="welcome-msg">Tic-Tac-Toe</h2>
+      <h3 id="modal-title">Press Start to Begin Game</h3>
+      <!-- <div class="options-container">
+        <label class="options-label" for="match-type">Grid Size</label>
+        <select class="options">
+          <option class="optItem" value="">3×3</option>
+        </select>
+      </div> -->
+      <div class="options-container">
+        <label class="options-label" for="matchType">Match Type</label>
+        <select id="matchType" class="options">
+          <option class="optItem" value="Player vs. Player">Player vs. Player</option>
+          <option class="optItem"  value="Player vs. Computer">Player vs. Computer</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="options-label" for="playeroneName">Player Name (X): </label>
+        <input class="formText" type="text" id="playeroneName" value="Player 1"/>
+      </div>
+
+      <div>
+        <label class="options-label" for="playertwoName">Player Name (O): </label>
+        <input class="formText" type="text" id="playertwoName" value="Player 2"/>
+      </div>
+
+      <div class="options-container">
+        <!-- for player vs computer; pvp has random select or 'x goes first' -->
+        <label class="options-label" for="match-type">(vs. AI) Player Choice</label> 
+        <select id="playerChoice" class="options" disabled>
+          <option class="optItem" value="X">X</option>
+          <option class="optItem"  value="O">O</option>
+        </select>
+      </div>
+      <div class="options-container">
+        <label class="options-label" for="match-type">Difficulty</label>
+        <select id="difficulty" class="options" disabled>
+          <option class="optItem" value="Easy">Easy</option>
+          <option class="optItem"  value="Medium">Medium</option>
+          <option class="optItem"  value="Hard">Hard</option>
+          <option class="optItem"  value="Impossibru">Impossibru</option>
+        </select>
+      </div>
+      <div class="confirm-buttons">
+        <input id="start-confirm" value="Start" type="submit"/>
+      </div>
+    </form>
+  </div>
+  
+  <footer class="footer">
+    Copyright © 2023 lguy4 
+    <a href="https://github.com/lguy4" target="_blank">
+      <i style="font-size:24px" class="fa fa-cat">&#xf09b;</i>
+    </a>
+  </footer>
+
+  <script src="ttt.js"></script>
+</body>
+</html>
+
+
+        <!-- <form onsubmit="(e) => e.preventDefault()">
+          <label for="levels">Difficulty:</label>
+          <select name="levels" id="levels">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+            <option value="Impossibru">Impossibru</option>
+          </select>
+        </form> -->
